@@ -17,9 +17,8 @@ public class ProductController {
 
     private final ProductService productService;
     @PostMapping(path = "/create")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Product> createProduct(@RequestBody ProductRequest productRequest){
-        return ResponseEntity.ok(productService.createProduct(productRequest));
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(productRequest));
     }
 
     @GetMapping(path = "/get")
